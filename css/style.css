@@ -1,0 +1,14 @@
+    .jumbotron {
+        background-color: darkcyan;
+        color: white;
+        background-image: url("../images/header1.jpg");
+        background-size: cover;
+        background-position: 50% 80%;
+        color: white
+    }
+    .ng-cloak {
+        visibility: hidden;
+    }
+    .buttonContainer {
+        margin-bottom: 10px;
+    }
