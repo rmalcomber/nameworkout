@@ -1,7 +1,11 @@
 (function () {
     var app = angular.module('nameWorkout', []);
+    app.config(function ($locationProvider) {
+        $locationProvider.html5Mode(true);
+    });
+    app.controller('calculation', function ($scope, $http, $location) {
 
-    app.controller('calculation', function ($scope, $http) {
+
 
         //Delcare the letters array and set it to an empty array
         this.letters = [];
@@ -17,10 +21,14 @@
 
         this.gymType = false;
 
-        //init sets up initialisation for the hint.
         this.init = function () {
+            //sets up initialisation for the hint.
             this.hint = this.getHint();
             this.LoadJsonData("nonGym");
+
+            //Checks and loads name query string value to textbox
+            var name = $location.search().name;
+            this.mainText = (name !== undefined ? name : "");
 
         }
 
