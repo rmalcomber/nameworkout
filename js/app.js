@@ -1,11 +1,14 @@
 (function () {
+    //Main App
     var app = angular.module('nameWorkout', []);
+
+    //Set the location provider to HTML5 for getting the parameters from the query string
     app.config(function ($locationProvider) {
         $locationProvider.html5Mode(true);
     });
+
+    //Main Controller
     app.controller('calculation', function ($scope, $http, $location) {
-
-
 
         //Delcare the letters array and set it to an empty array
         this.letters = [];
@@ -19,17 +22,29 @@
         //Initialise the current selected tab
         this.currentTab = 1;
 
+        //Initialise the data type to non gym
         this.gymType = false;
+
+        //Variable for storing the loading of data state
+        this.dataLoading = false;
+
+        //Variable if the data has loaded or not
+        this.DataLoaded = false;
+
+        //vars for the indiviual data files being loaded
+        this.gymDataLoaded = false;
+        this.nonGymDataLoaded = false;
 
         this.init = function () {
             //sets up initialisation for the hint.
             this.hint = this.getHint();
-            this.LoadJsonData("nonGym");
+
+            //Load the data
+            this.LoadJsonData();
 
             //Checks and loads name query string value to textbox
             var name = $location.search().name;
             this.mainText = (name !== undefined ? name : "");
-
         }
 
         //getActiveTab returns if the current tab is active and sets a CSS class
@@ -42,18 +57,48 @@
             return this.currentTab === i;
         }
 
+        //Swap for the gym type
         this.changeExerciseType = function () {
             this.gymType = !this.gymType;
-            var str = this.gymType ? "gym" : "nonGym";
-            this.LoadJsonData(str);
+            this.SelectData(this.gymType);
+            scope.onNewUpdate();
         }
 
-        this.LoadJsonData = function (file) {
-            $http.get('js/Data/' + file + '.json').success(function (data) {
-                scope.listOfLetters = data;
-                scope.DataLoaded = true;
-                scope.onNewUpdate();
-            });
+        //Select which data set is used, gym or nonGym
+        this.SelectData = function (Gym) {
+            scope.listOfLetters = (Gym === true ? scope.listOfGymLetters : scope.listOfNonGymLetters);
+        }
+
+        //Load up both sets of JSON data
+        this.LoadJsonData = function () {
+            if (!scope.DataLoaded && !this.dataLoading) {
+                this.dataLoading = true;
+                var ngfile = "gym",
+                    gfile = "nonGym";
+
+                $http.get('js/Data/nonGym.json').success(function (data) {
+                    scope.listOfNonGymLetters = data;
+                    scope.nonGymDataLoaded = true;
+                });
+
+                $http.get('js/Data/gym.json').success(function (data) {
+                    scope.listOfGymLetters = data;
+                    scope.gymDataLoaded = true;
+                });
+
+
+            }
+        }
+
+        //Check the data has been loaded.
+        //If data is loaded set the correct data to the list of letters array
+        this.checkDataLoaded = function () {
+            scope.DataLoaded = (scope.gymDataLoaded && scope.nonGymDataLoaded);
+            if (scope.DataLoaded) {
+
+                scope.SelectData(this.gymType);
+            }
+            return scope.DataLoaded;
         }
 
         //selectTab sets the currentTab to be the selected tab
@@ -76,7 +121,7 @@
         //and adds the excersise data to the letters array
         this.onNewUpdate = function () {
 
-            if (this.DataLoaded === false) {
+            if (this.checkDataLoaded() === false) {
                 return false;
             }
 
@@ -88,7 +133,7 @@
             }
 
 
-
+            //Loop through each chracter in the textbox
             $.each(ch, function (i, v) {
                 $.each(scope.listOfLetters, function (index, value) {
                     if (v == value.letter) {

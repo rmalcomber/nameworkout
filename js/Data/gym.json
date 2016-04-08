@@ -6,8 +6,8 @@
     "unitSuffix": ""
 }, {
     "letter": "b",
-    "exercise": "Jumping Jacks",
-    "unit": 50,
+    "exercise": "Seated Leg Curl",
+    "unit": 15,
     "unitSuffix": ""
 }, {
     "letter": "c",
@@ -16,52 +16,52 @@
     "unitSuffix": ""
 }, {
     "letter": "d",
-    "exercise": "Burpees",
+    "exercise": "Adjustable Sit Up Bench",
     "unit": 10,
     "unitSuffix": ""
 }, {
     "letter": "e",
-    "exercise": "Wall Sit",
-    "unit": 60,
-    "unitSuffix": "Second"
-}, {
-    "letter": "f",
-    "exercise": "Arm Circles",
-    "unit": 20,
+    "exercise": "Leg Press",
+    "unit": 15,
     "unitSuffix": ""
 }, {
+    "letter": "f",
+    "exercise": "Arm Cycle",
+    "unit": 20,
+    "unitSuffix": "Minutes"
+}, {
     "letter": "g",
-    "exercise": "squats",
+    "exercise": "Bicep Curl",
     "unit": 20,
     "unitSuffix": ""
 }, {
     "letter": "h",
-    "exercise": "Jumping Jacks",
-    "unit": 50,
+    "exercise": "Seated Leg Curl",
+    "unit": 15,
     "unitSuffix": ""
 }, {
     "letter": "i",
-    "exercise": "Plank",
-    "unit": 60,
+    "exercise": "Shoulder Press",
+    "unit": 20,
     "unitSuffix": "Second"
 }, {
     "letter": "j",
-    "exercise": "Mountain Climbers",
+    "exercise": "Climbing Machine",
     "unit": 20,
-    "unitSuffix": ""
+    "unitSuffix": "Minutes"
 }, {
     "letter": "k",
     "exercise": "Cable Reverse Crunch",
-    "unit": 40,
+    "unit": 10,
     "unitSuffix": ""
 }, {
     "letter": "l",
-    "exercise": "Burpees",
-    "unit": 12,
+    "exercise": "Sit Up Bench",
+    "unit": 15,
     "unitSuffix": ""
 }, {
     "letter": "m",
-    "exercise": "Squat Jumps",
+    "exercise": "Triceps Extension",
     "unit": 15,
     "unitSuffix": ""
 }, {
@@ -71,7 +71,7 @@
     "unitSuffix": ""
 }, {
     "letter": "o",
-    "exercise": "lunges",
+    "exercise": "Calf Press",
     "unit": 20,
     "unitSuffix": ""
 }, {
@@ -81,32 +81,32 @@
     "unitSuffix": ""
 }, {
     "letter": "q",
-    "exercise": "Jumping Jacks",
+    "exercise": "Seated Leg Curl",
     "unit": 20,
     "unitSuffix": ""
 }, {
     "letter": "r",
-    "exercise": "Plank",
+    "exercise": "Shoulder Press",
     "unit": 15,
     "unitSuffix": "Second"
 }, {
     "letter": "s",
-    "exercise": "Bicycle Crunches",
-    "unit": 30,
+    "exercise": "Pullup Bar",
+    "unit": 5,
     "unitSuffix": ""
 }, {
     "letter": "t",
-    "exercise": "Wall Sit",
-    "unit": 60,
-    "unitSuffix": "Second"
+    "exercise": "Leg Press",
+    "unit": 15,
+    "unitSuffix": ""
 }, {
     "letter": "u",
-    "exercise": "High Knees",
-    "unit": 40,
+    "exercise": "Pullup Bar",
+    "unit": 5,
     "unitSuffix": ""
 }, {
     "letter": "v",
-    "exercise": "Squats",
+    "exercise": "Bicep Curl",
     "unit": 30,
     "unitSuffix": ""
 }, {
@@ -116,18 +116,18 @@
     "unitSuffix": ""
 }, {
     "letter": "x",
-    "exercise": "Mountain Climbers",
+    "exercise": "Climbing Machine",
     "unit": 10,
     "unitSuffix": ""
 }, {
     "letter": "y",
-    "exercise": "Jumping Lunges",
+    "exercise": "Back Extensions",
     "unit": 12,
     "unitSuffix": ""
 }, {
     "letter": "z",
     "exercise": "Cable Reverse Crunch",
-    "unit": 30,
+    "unit": 15,
     "unitSuffix": ""
 }, {
     "letter": " ",
@@ -137,7 +137,7 @@
 }, {
     "letter": "@",
     "exercise": "Reverse Crunch",
-    "unit": "30",
+    "unit": "15",
     "unitSuffix": ""
 }, {
     "letter": ".",

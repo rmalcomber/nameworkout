@@ -1,6 +1,6 @@
 (function ($) {
 
-    var domain = "http://malcomberstudios.co.uk"
+    var domain = "http://malcomberstudios.co.uk/nameworkout"
 
     $(document).ready(function () {
 
