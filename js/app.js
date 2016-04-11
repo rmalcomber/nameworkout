@@ -7,8 +7,20 @@
         $locationProvider.html5Mode(true);
     });
 
+    //Load data service
+    app.service("loadData", function ($http, $q) {
+        return {
+            waitForBoth: function () {
+                return $q.all([
+                  $http.get('js/Data/nonGym.json'),
+                  $http.get('js/Data/gym.json')
+              ]);
+            }
+        };
+    });
+
     //Main Controller
-    app.controller('calculation', function ($scope, $http, $location) {
+    app.controller('calculation', function ($scope, $http, $location, loadData) {
 
         //Delcare the letters array and set it to an empty array
         this.letters = [];
@@ -72,21 +84,15 @@
         //Load up both sets of JSON data
         this.LoadJsonData = function () {
             if (!scope.DataLoaded && !this.dataLoading) {
-                this.dataLoading = true;
-                var ngfile = "gym",
-                    gfile = "nonGym";
 
-                $http.get('js/Data/nonGym.json').success(function (data) {
-                    scope.listOfNonGymLetters = data;
+                loadData.waitForBoth().then(function (retVal) {
+                    scope.listOfNonGymLetters = retVal[0].data;
+                    scope.listOfGymLetters = retVal[1].data;
                     scope.nonGymDataLoaded = true;
-                });
-
-                $http.get('js/Data/gym.json').success(function (data) {
-                    scope.listOfGymLetters = data;
                     scope.gymDataLoaded = true;
+                    scope.onNewUpdate();
+
                 });
-
-
             }
         }
 
